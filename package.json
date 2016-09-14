@@ -1,0 +1,46 @@
+{
+  "name": "json-to-markdown-table",
+  "version": "1.0.0",
+  "description": "Web app that converts JSON to Markdown tables",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kdelmonte/json-to-markdown-table-.git"
+  },
+  "keywords": [
+    "json",
+    "markdown",
+    "table"
+  ],
+  "author": "Kelvin Del Monte",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/kdelmonte/json-to-markdown-table-/issues"
+  },
+  "homepage": "https://github.com/kdelmonte/json-to-markdown-table-#readme",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "gulp": "^3.9.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-load-plugins": "^1.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-webserver": "^0.9.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-clipboard": "^1.5.0",
+    "angular-highlightjs": "^0.6.2",
+    "angular-sanitize": "^1.5.8",
+    "highlight.js": "^9.6.0",
+    "json-format": "^0.1.2",
+    "json-to-table": "^2.1.5",
+    "markdown-table": "^1.0.0",
+    "marked": "^0.3.6",
+    "pygments": "^0.2.1"
+  }
+}

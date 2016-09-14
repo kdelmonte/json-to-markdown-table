@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <title>JSON to Markdown Table</title>
+    <link rel="stylesheet" type="text/css" href="dist/bundle.css">
+</head>
+<body>
+    <div ng-controller="appController" ng-cloak>
+        <h1 id="page-title">JSON to Markdown Table</h1>
+        <div id="main-content">
+            <div class="section">
+            	<div class="section-header">
+            		<span>JSON</span>
+            		<button class="copy-button" ng-click="copyJson()">Copy</button>
+            	</div>
+            	<textarea
+        			ng-show="jsonInputVisible || !processed"
+                	placeholder="Enter your JSON here"
+                	class="input-json" 
+                	ng-model="jsonInput" 
+                	rows="5"
+                	md-select-on-focus
+                	ng-change="jsonToMarkdownTable()"
+                	ng-blur="hideJsonInput()"></textarea>               
+                <div
+                	id="formatted-json" 
+                	class="input-json" 
+                	hljs hljs-source="jsonOutput" 
+                	hljs-language="json" 
+                	ng-show="processed && !jsonInputVisible"
+                	ng-click="showJsonInput()"></div>
+            </div>
+            <div class="section" ng-if="processed">
+            	<div class="section-header">
+            		<span>Markdown Table</span>
+            		<button class="copy-button" ng-click="copyMarkdown()">Copy</button>
+            	</div>
+            	<div id="markdown-preview" class="table-preview">
+            		<div hljs hljs-source="markdownOutput" hljs-language="markdown"></div>
+            	</div>
+            	
+            </div>
+            <div class="section" ng-if="processed">
+                <div class="section-header">
+            		<span>Table Preview</span>
+            		<button class="copy-button" ng-click="copyHtml()">Copy</button>
+            	</div>
+                <div class="table-preview" ng-bind-html="htmlOutput"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="dist/bundle.js"></script>
+</body>
+
+</html>
