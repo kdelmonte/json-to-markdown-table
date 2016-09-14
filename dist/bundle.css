@@ -69,6 +69,15 @@ Monokai style - ported by Luigi Maselli - http://grigio.org
 .hljs-selector-id {
   font-weight: bold;
 }
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: none !important;
+}
+
 #page-title {
   text-align: center;
 }
