@@ -1,4 +1,4 @@
-/* jshint node:true*/
+/* jshint node:true, evil:true*/
 
 'use strict';
 
@@ -14,7 +14,7 @@ angular
 		require('angular-highlightjs'),
 		require('angular-clipboard').name,
 	])
-	.controller('appController', function($scope, clipboard) {
+	.controller('appController', function($scope, $document, clipboard) {
 		$scope.jsonInputVisible = true;
 		$scope.jsonToMarkdownTable = function() {
 			$scope.error = null;
@@ -25,8 +25,14 @@ angular
 			if(!$scope.jsonInput.trim()){
 				return;
 			}
+			var inputObject;
 			try {
-				var inputObject = JSON.parse($scope.jsonInput);
+				try {
+					inputObject = eval('(' + $scope.jsonInput + ')');
+				} catch (e){
+					inputObject = JSON.parse($scope.jsonInput);
+				}
+				
 				var jsonTable = toJsonTable(inputObject);
 				$scope.jsonOutput = jsonFormat(inputObject);
 				$scope.markdownOutput = toMarkdownTable(jsonTable);
@@ -58,5 +64,11 @@ angular
 
 		$scope.showJsonInput = function() {
 			$scope.jsonInputVisible = true;
+			var inputJson = document.getElementById('input-json');
+			setTimeout(function(){
+				inputJson.focus();
+				inputJson.select();
+			}, 1);
+			
 		};
 	});

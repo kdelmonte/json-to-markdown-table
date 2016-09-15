@@ -17,7 +17,8 @@
             	<textarea
         			ng-show="jsonInputVisible || !processed"
                 	placeholder="Enter your JSON here"
-                	class="input-json" 
+                    id="input-json"
+                	class="json-field" 
                 	ng-model="jsonInput" 
                 	rows="5"
                 	md-select-on-focus
@@ -25,12 +26,14 @@
                 	ng-blur="hideJsonInput()"></textarea>               
                 <div
                 	id="formatted-json" 
-                	class="input-json" 
+                	class="json-field" 
                 	hljs hljs-source="jsonOutput" 
                 	hljs-language="json" 
                 	ng-show="processed && !jsonInputVisible"
-                	ng-click="showJsonInput()"></div>
+                	ng-click="showJsonInput()"
+                    title="Click to edit"></div>
             </div>
+            <div id="error-message" ng-if="error">{{error.message}}</div>
             <div class="section" ng-if="processed">
             	<div class="section-header">
             		<span>Markdown Table</span>
